@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Detail Register</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+    <div class="container mt-5">
+        <h2 class="text-center">Student Detail Register</h2>
+        <form id="studentForm">
+            <div class="form-group">
+                <label for="studentName">Name</label>
+                <input type="text" class="form-control" id="studentName" placeholder="Enter your name">
+            </div>
+            <div class="form-group">
+                <label for="studentEmail">Email</label>
+                <input type="email" class="form-control" id="studentEmail" placeholder="Enter your email">
+            </div>
+            <div class="form-group">
+                <label for="studentPhone">Phone</label>
+                <input type="tel" class="form-control" id="studentPhone" placeholder="Enter your phone number">
+            </div>
+            <div class="form-group">
+                <label for="studentAddress">Address</label>
+                <textarea class="form-control" id="studentAddress" rows="3" placeholder="Enter your address"></textarea>
+            </div>
+            <div class="form-group">
+                <label for="studentCourse">Course</label>
+                <select class="form-control" id="studentCourse">
+                    <option>Bachelor of Science</option>
+                    <option>Bachelor of Arts</option>
+                    <option>Bachelor of Commerce</option>
+                    <option>Bachelor of Engineering</option>
+                </select>
+            </div>
+            <button type="submit" class="btn btn-primary">Submit</button>
+        </form>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script>
+        document.getElementById('studentForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+            
+            const studentName = document.getElementById('studentName').value;
+            const studentEmail = document.getElementById('studentEmail').value;
+            const studentPhone = document.getElementById('studentPhone').value;
+            const studentAddress = document.getElementById('studentAddress').value;
+            const studentCourse = document.getElementById('studentCourse').value;
+
+            const studentDetails = {
+                name: studentName,
+                email: studentEmail,
+                phone: studentPhone,
+                address: studentAddress,
+                course: studentCourse
+            };
+
+            localStorage.setItem('studentDetails', JSON.stringify(studentDetails));
+            alert('Student details saved successfully!');
+        });
+    </script>
+</body>
+</html>
